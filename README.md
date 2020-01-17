@@ -28,6 +28,11 @@ $ cd ./frontend
 $ npm run start     // webpack.config.js
 `````
 ## Front-end(React) Build
+
+`````bash
+$ cd ./frontend
+`````
+
 `````bash
 $ npm run build     // webpack.config.build.js
 `````
