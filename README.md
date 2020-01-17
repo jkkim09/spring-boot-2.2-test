@@ -24,7 +24,8 @@ $ npm run build
 `````
 #### Back-end(Spring Boot) start
 
-├── src
+.
+└── src
     └── main
          └── java
               └── com
