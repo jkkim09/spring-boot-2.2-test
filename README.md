@@ -19,6 +19,11 @@ $ cd ./frontend
 $ npm install
 `````
 ## Front-end(React) 실행
+
+`````bash
+$ cd ./frontend
+`````
+
 `````bash
 $ npm run start     // webpack.config.js
 `````
