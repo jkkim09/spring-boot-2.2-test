@@ -50,3 +50,28 @@ $ npm run build     // webpack.config.build.js
 ```
 
 Application.java 파일을 Run Application 하여 Server 을 실행 한다.
+
+## Project Build
+
+project 폴더에서 실행<br>
+-t : tag name option<br>
+. : Dockerfile 위치
+
+`````bash
+$ docker build -t {tagname:version} .
+`````
+
+처음 jar 형식으로 배포하여 spring boot 내부 tomacat 으로 구동 시키려고 하였으나 jsp 랜더링을 하기위해 설정들이 필요하였고 삽질을 하다 일단 war 형식으로 배포하여 jsp 형식을 지원 하기로 하였다 차 후 설정을 조정하여 jar 형식으로 변경할 것 이다.
+
+`````
+FROM tomcat:8.0.51-jre8-alpine     // tomcat 이미지
+RUN rm -rf /usr/local/tomcat/webapps/*  // tomcat에 포함되어있는 기본 내용 초기화
+COPY ./target/spring-boot-2.2-test-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war  // war 파일을 tomcat에 webapps 폴더에 복사
+CMD ["catalina.sh","run"] // war 실행
+`````
+
+## Project 배포
+
+`````bash
+$ docker run -d -p {외부포트}:{내부포트} {tagname:version}
+`````
