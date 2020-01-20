@@ -9,8 +9,8 @@ class Router extends Component {
     render() {
         return (
             <BrowserRouter>
-                <App/>
-                <Apage/>
+                <App name="testName"/>
+                <Apage name="testName"/>
                 <Bpage/>
                 <Cpage/>
             </BrowserRouter>

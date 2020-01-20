@@ -4,7 +4,7 @@ class Apage extends Component {
     render() {
         return (
             <div>
-                Hello Apage
+                Hello Apage {this.props.name}
             </div>
         );
     }

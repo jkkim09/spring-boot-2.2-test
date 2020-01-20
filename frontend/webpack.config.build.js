@@ -22,7 +22,7 @@ module.exports = {                                      // moduel export (옛날
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',                // 생성한 템플릿 파일
-            filename: path.join(__dirname, '../src/main/webapp/WEB-INF/jsp/index.jsp') // index.jsp 의 위치
+            filename: path.join(__dirname, '../src/main/webapp/WEB-INF/view/index.jsp') // index.jsp 의 위치
         })
     ]
 }
