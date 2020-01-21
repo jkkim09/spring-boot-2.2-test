@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-
+import Dpage from './Dpage'
 class Cpage extends Component {
     constructor(props) {
         super(props)
-        this.state = {list: [1, 2, 3, 4, 5, 6], select_value: 'text1'}
+        this.state = {list: props.list, select_value: 'text1'}
         this.selectChange = this.selectChange.bind(this)
         this.testClick = this.testClick.bind(this)
         this.inputChange = this.inputChange.bind(this)
     }
 
     selectChange(e) {
-        this.setState({select_value: e.target.value, test})
+        this.setState({select_value: e.target.value})
     }
 
     inputChange(e) {
@@ -34,9 +34,10 @@ class Cpage extends Component {
                     <option value="text4">text4</option>
                     <option value="text5">text5</option>
                 </select>
-                <input name="input1" onChange={this.inputChange}></input>
+                <input name="input1" onChange={this.inputChange} value={this.state.select_value}></input>
                 <input name="input2" onChange={this.inputChange}></input>
                 <input name="input3" onChange={this.inputChange}></input>
+                <Dpage/>
             </div>
         );
     }

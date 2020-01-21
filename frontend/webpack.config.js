@@ -15,6 +15,10 @@ module.exports = {                                      // moduel export (옛날
                 use:{
                     loader: 'babel-loader'                // babel loader가 파이프를 통해 js 코드를 불러옴
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
             }
         ]
     },
@@ -22,5 +26,11 @@ module.exports = {                                      // moduel export (옛날
         new HtmlWebpackPlugin({
             template: './src/index.html'                // 생성한 템플릿 파일
         })
-    ]
+    ],
+
+    devServer: {
+        inline: true,
+        port: 8080,
+        historyApiFallback: true
+    }
 }
