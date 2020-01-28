@@ -37,6 +37,8 @@ class RouterPage extends Component {
     }
 }
 
+
+// this.props 에 state 등록
 let mapStateToProps = (state) => {
     console.log('redux state : ', state);
     return {
@@ -45,17 +47,21 @@ let mapStateToProps = (state) => {
     };
 }
 
-
+// this.props 에 state 등록
 const todolistDispatchToProps = (dispatch) => {  
     console.log('redux dispatch : ',dispatch);
     return {
-        // onClick(data){
-        //   dispatch(complete2(data))
-        // }
+        testClick(data){
+          dispatch(complete2(data))
+        }
     }
 }
 
-
+/**
+ * connect(A, B)
+ * A: state,
+ * B: dispatch
+ */
 RouterPage = connect(mapStateToProps, todolistDispatchToProps)(RouterPage);
 
 export default RouterPage;
