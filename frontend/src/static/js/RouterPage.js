@@ -10,6 +10,7 @@ const Cpage = React.lazy(() => import('./component/Cpage'));
 
 class RouterPage extends Component {
     render() {
+        console.log('this.props : ', this.props);
         const list = [1,2,3,4,5,6,7]
         return (
             // exaxt 가 없으면 순차적으로 rendering 된다.
@@ -37,10 +38,24 @@ class RouterPage extends Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log('redux state : ', state);
     return {
-        value: state.counter.value
+        value1: 'testValue',
+        value2: state.extra.value
     };
 }
-RouterPage = connect(mapStateToProps)(RouterPage);
+
+
+const todolistDispatchToProps = (dispatch) => {  
+    console.log('redux dispatch : ',dispatch);
+    return {
+        // onClick(data){
+        //   dispatch(complete2(data))
+        // }
+    }
+}
+
+
+RouterPage = connect(mapStateToProps, todolistDispatchToProps)(RouterPage);
 
 export default RouterPage;
