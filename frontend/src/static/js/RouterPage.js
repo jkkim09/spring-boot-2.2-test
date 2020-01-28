@@ -1,5 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Header from './component/Header';
 import App from './component/App';
 import Apage from './component/Apage';
@@ -34,5 +35,12 @@ class RouterPage extends Component {
         );
     }
 }
+
+let mapStateToProps = (state) => {
+    return {
+        value: state.counter.value
+    };
+}
+RouterPage = connect(mapStateToProps)(RouterPage);
 
 export default RouterPage;
