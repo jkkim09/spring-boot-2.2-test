@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { BrowserRouter as Router, Route, } from 'react-router-dom';
+import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from './component/Header';
 import App from './component/App';
@@ -14,8 +14,9 @@ class RouterPage extends Component {
         const list = [1,2,3,4,5,6,7]
         return (
             // exaxt 가 없으면 순차적으로 rendering 된다.
+            // HashRouter
             <div>
-                <Router>
+                <HashRouter>
                     <Header/>
                     <Route exact path="/" component={() => <App name="testName"/>}/>
                     <Route path="/a"  component={() =>  <Apage name="testName"/>} />
@@ -23,7 +24,7 @@ class RouterPage extends Component {
                     <Suspense fallback={<div>Loading...</div>}>
                         <Route path="/c" component={() => <Cpage list={list}/>} />
                     </Suspense>
-                </Router>
+                </HashRouter>
             </div>
             // <BrowserRouter>
             //     <Suspense fallback={<div>Loading...</div>}>
