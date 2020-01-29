@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class HomeController {
 
-	@RequestMapping("/")
+	@RequestMapping("/*")
 	public ModelAndView index() {
 		System.out.println("/index");
 		ModelAndView mv = new ModelAndView("index");
@@ -15,13 +15,13 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping("/test")
+	@RequestMapping("/test/test")
 	public String home() {
 		System.out.println("/test");
 		return "Hello World! jk test";
 	}
 	
-	@RequestMapping("/main")
+	@RequestMapping("/main/main")
 	public ModelAndView main() {
 		System.out.println("/main");
 		ModelAndView mv = new ModelAndView("main");

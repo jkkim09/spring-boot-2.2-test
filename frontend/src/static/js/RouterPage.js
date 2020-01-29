@@ -52,7 +52,7 @@ const todolistDispatchToProps = (dispatch) => {
     console.log('redux dispatch : ',dispatch);
     return {
         testClick(data){
-          dispatch(complete2(data))
+          dispatch(INCREMENT(data))
         }
     }
 }
