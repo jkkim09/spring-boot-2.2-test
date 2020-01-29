@@ -60,6 +60,7 @@ project 폴더에서 실행<br>
 `````bash
 $ docker build -t {tagname:version} .
 `````
+### - war build
 
 처음 jar 형식으로 배포하여 spring boot 내부 tomacat 으로 구동 시키려고 하였으나 jsp 랜더링을 하기위해 설정들이 필요하였고 삽질을 하다 일단 war 형식으로 배포하여 jsp 형식을 지원 하기로 하였다 차 후 설정을 조정하여 jar 형식으로 변경할 것 이다.
 
@@ -69,6 +70,19 @@ RUN rm -rf /usr/local/tomcat/webapps/*  // tomcat에 포함되어있는 기본 �
 COPY ./target/spring-boot-2.2-test-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war  // war 파일을 tomcat에 webapps 폴더에 복사
 CMD ["catalina.sh","run"] // war 실행
 `````
+### - jar build
+
+view 파일을 .html 을 쓰게되면서 jar 형식으로 배포가 가능하게 되었다 그래서 Spring Boot 내장 서버를 사용가능하여 아래와 같이 Dockerfile 을 정의 하였다.
+
+``````
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+``````
+
 
 ## Project 배포
 
