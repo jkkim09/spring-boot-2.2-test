@@ -14,6 +14,7 @@ class Header extends Component {
                     <li><Link to="/a">Apage</Link></li>
                     <li><Link to="/b">Bpage</Link></li>
                     <li><Link to="/c">Cpage</Link></li>
+                    <li><Link to="/e">Epage</Link></li>
                 </ul>
                 <hr/>
             </div>

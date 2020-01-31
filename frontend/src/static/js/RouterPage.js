@@ -1,14 +1,25 @@
 import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { increment, decrement, setDiff  } from '../../actions';
 import Header from './component/Header';
 import App from './component/App';
 import Apage from './component/Apage';
 import Bpage from './component/Bpage';
-// import Cpage from './component/Cpage';
+import Epage from './component/Epage';
 const Cpage = React.lazy(() => import('./component/Cpage'));
 
 class RouterPage extends Component {
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+    }
+
+    onClick(event) {
+        console.log('onClick : ', this.props);
+        this.props.testClick('test value');
+    }
+
     render() {
         console.log('this.props : ', this.props);
         const list = [1,2,3,4,5,6,7]
@@ -18,9 +29,11 @@ class RouterPage extends Component {
             <div>
                 <HashRouter>
                     <Header/>
+                    <h1 onClick={this.onClick}>test</h1>
                     <Route exact path="/" component={() => <App name="testName"/>}/>
                     <Route path="/a"  component={() =>  <Apage name="testName"/>} />
                     <Route path="/b"  component={() => <Bpage/>} />
+                    <Route path="/e"  component={() => <Epage/>} />
                     <Suspense fallback={<div>Loading...</div>}>
                         <Route path="/c" component={() => <Cpage list={list}/>} />
                     </Suspense>
@@ -53,7 +66,8 @@ const todolistDispatchToProps = (dispatch) => {
     console.log('redux dispatch : ',dispatch);
     return {
         testClick(data){
-          dispatch(INCREMENT(data))
+            console.log('test click : ', data, setDiff);
+            dispatch(setDiff(data))
         }
     }
 }
