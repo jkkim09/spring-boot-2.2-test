@@ -5,7 +5,7 @@
 ![](https://t1.daumcdn.net/cfile/tistory/9948863C5A57111825)
 
 # 환경
-Spring-Boot(Spring) + React (webpack) 으로 Web 환경을 구성하였다. <br>
+Spring-Boot(Spring) + React (webpack) + Docker로 Web 환경을 구성하였다. <br>
 Front-end 폴더에 webpack.config.js, webpack.config.build.js 파일이 두개가 존제하는데 그이유는 local 환경에서 Front-end 단 작업을 할때 webpack.config.js 설정파일을 써야 정상작의로 동작하며 webpack.config.build.js 배포전 build 파여 Spring 환경에서 배포 되게 하기 위해서이다.
 
 # 설치
